@@ -118,7 +118,7 @@ $('date').value=isoLocal(new Date()).slice(0,10);$('anchorTime').value=isoLocal(
 // 在 Firebase 控制台「專案設定 > 你的應用程式 > 網頁應用程式」複製下列值。
 const FIREBASE_CONFIG={apiKey:"AIzaSyDPavkiuenLwcZn_6bxwV7lj9SHkJ_dT4Q",authDomain:"ultimate-schedule-febb0.firebaseapp.com",projectId:"ultimate-schedule-febb0",appId:"1:56793139780:web:ae8f63578ad6a493ea4a11"};
 // Firebase Authentication > 使用者 > UID。此 UID 也必須填入 firestore.rules。
-const ADMIN_UID="REPLACE_ADMIN_UID";
+const ADMIN_UID="0PFStPbhIKdqP7IyQW5FPjM58iU2";
 var fbAuth=null,fbDb=null,remoteReady=false,unsubscribeSchedule=null;
 function setStatus(message){document.getElementById('adminStatus').textContent=message}
 function setAdminMode(enabled){isAdmin=enabled;document.body.classList.toggle('viewer-only',!enabled);document.getElementById('loginBtn').style.display=enabled?'none':'inline-block';document.getElementById('logoutBtn').style.display=enabled?'inline-block':'none';document.getElementById('publishBtn').style.display=enabled?'inline-block':'none';document.getElementById('start').disabled=!enabled;render()}
