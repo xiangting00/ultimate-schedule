@@ -136,7 +136,7 @@ main>.panel .flex.between:has(h2)+.flex{margin-bottom:24px;row-gap:16px}
 .un-inline-editor .un-btn.danger{border-color:#f2c4c1;background:#fff7f6;color:#c43c35;padding:12px 15px}
 .un-editor-list{display:grid;gap:11px;margin-top:12px}
 .un-editor-row{border:1px solid #dce6ec;border-radius:13px;padding:13px;min-width:0}
-.un-editor-actions{margin-top:20px;display:flex;flex-wrap:wrap;gap:0}
+.un-editor-actions{margin-top:20px;display:flex;flex-wrap:wrap;gap:14px}
 .un-editor-actions .un-btn{padding:12px 17px}
 .un-footer .un-item .un-buttons.admin-edit{display:none!important}
 body.admin-mode .un-footer .un-grid:has(+ .un-editor-list){display:none!important}
@@ -151,8 +151,15 @@ body:not(.admin-mode) .un-footer .un-editor-list{display:none!important}
 .un-footer .un-box{margin-bottom:24px!important}
 header .header-actions{align-items:center}
 .last-published{font-size:13px;color:#587184;white-space:nowrap;line-height:1.5}
-body:not(.admin-mode) .last-published{display:none}
+.last-published{display:inline-block!important}
 @media(max-width:700px){header .header-actions{gap:10px}.last-published{width:100%;white-space:normal;text-align:left}.un-footer .un-box .un-buttons{gap:12px!important}}
+
+/* 統一欄位高度及編輯按鈕間距 */
+.settings input[type="number"],.settings input[type="datetime-local"],.settings select{height:52px!important;min-height:52px!important;padding:11px 13px!important;line-height:28px!important;box-sizing:border-box!important;vertical-align:middle}
+.un-footer .un-editor-actions{gap:14px!important;column-gap:14px!important;row-gap:12px!important}
+.un-footer .un-editor-actions .un-btn{margin:0!important}
+header .header-actions .last-published{display:inline-block!important;flex:0 0 auto;white-space:nowrap}
+@media(max-width:700px){header .header-actions .last-published{flex-basis:100%;white-space:normal}}
 </style></head><body><header><div class="header-title"><h1>📺 終極系列 24H 輪播時刻表</h1></div><div class="header-actions"><span id="adminStatus" aria-live="polite">正在連接雲端設定…</span><button class="btn" id="loginBtn" type="button" onclick="loginAdmin()">登入</button><button class="btn" id="adminModeBtn" type="button" onclick="enterManagement()">管理模式</button><button class="btn" id="exitModeBtn" type="button" onclick="exitManagement()">退出管理模式</button><button class="btn" id="logoutBtn" type="button" onclick="logoutAdmin()">登出</button><button class="btn primary" id="publishBtn" type="button" onclick="publishSchedule()">發布設定給所有觀眾</button><span id="lastPublished" class="last-published" aria-live="polite">最後更新：尚未發布</span></div></header><main>
 <section class="panel"><div class="flex between"><div class="tabs flex"><button id="tabSG" onclick="switchChannel('sg')">⚡ 終極三國 24H</button><button id="tabAll" onclick="switchChannel('all')">🌟 終極全系列 24H</button></div><button class="btn admin-edit" onclick="resetSettings()">重設設定</button></div></section>
 <section class="panel"><h2>⚙️ 輪播設定</h2><div class="settings"><div><label>輪播起始時間（台灣時間）</label><input type="datetime-local" step="1" id="start" onchange="updateStart()"><p class="muted">從此時刻的第 1 部第 1 集開始，24 小時連續循環。</p></div><div id="selectArea"><label>本輪播放片單（依實際播放順序）</label><div id="dramas"></div><p class="muted">可上下調整順序，取消勾選即略過該劇。</p></div></div></section>
